@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Router } from '@reach/router';
+import NavBar from './Components/NavBar';
+import LoginComponant from './Components/LoginComponant';
+import DashboardComponant from './Components/DashboardComponant';
 import './App.css';
+import Home from './Components/Home';
+import HomeNum from './Components/HomeNum';
+import Hello from './Components/Hello';
+import ColorMe from './Components/ColorMe';
 
 function App() {
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <Router>
+        <LoginComponant path= "/login" />
+        <DashboardComponant path= "/dashboard" />
+        <Home path= "/home" />
+        <HomeNum path= "/:num" />
+        <Hello path= "/:hello" />
+        <ColorMe path= "/:word/:txtcolor/:bgcolor" />
+      </Router>
     </div>
   );
 }
